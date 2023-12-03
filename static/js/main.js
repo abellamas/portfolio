@@ -115,7 +115,7 @@
    * Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
+    select('#navbar').classList.toggle('nav-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
@@ -124,7 +124,7 @@
    * Mobile nav dropdowns activate
    */
   on('click', '.navbar .dropdown > a', function(e) {
-    if (select('#navbar').classList.contains('navbar-mobile')) {
+    if (select('#navbar').classList.contains('nav-mobile')) {
       e.preventDefault()
       this.nextElementSibling.classList.toggle('dropdown-active')
     }
@@ -138,8 +138,8 @@
       e.preventDefault()
 
       let navbar = select('#navbar')
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
+      if (navbar.classList.contains('nav-mobile')) {
+        navbar.classList.remove('nav-mobile')
         let navbarToggle = select('.mobile-nav-toggle')
         navbarToggle.classList.toggle('bi-list')
         navbarToggle.classList.toggle('bi-x')
