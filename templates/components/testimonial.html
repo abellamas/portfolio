@@ -1,5 +1,5 @@
 {% load static %}
-<div class="testimonials paralax-mf bg-image" style="background-image: url({% static "img/overlay-bg.jpg" %})">
+<div class="testimonials paralax-mf bg-image" style="background-image: url({% static "img/hero-bg.png" %})">
     <div class="overlay-mf"></div>
     <div class="container">
       <div class="row">
@@ -11,8 +11,8 @@
               <div class="swiper-slide">
                 <div class="testimonial-box">
                   <div class="author-test">
-                    <img src={% static "img/testimonial-2.jpg"%} alt="" class="rounded-circle b-shadow-a">
-                    <span class="author">Xavi Alonso</span>
+                    <span class="author">Tutor Acompañante de Trayectorias Educativas</span>
+                    <span>Oct 2020 - Today</span>
                   </div>
                   <div class="content-test">
                     <p class="description lead">
@@ -22,12 +22,14 @@
                   </div>
                 </div>
               </div><!-- End testimonial item -->
+
+              
 
               <div class="swiper-slide">
                 <div class="testimonial-box">
                   <div class="author-test">
-                    <img src={% static "img/testimonial-4.jpg"%} alt="" class="rounded-circle b-shadow-a">
-                    <span class="author">Marta Socrate</span>
+                    <span class="author">Tutor Socio-Laboral</span>
+                    <span>Apr 2018 - Oct 2020</span>
                   </div>
                   <div class="content-test">
                     <p class="description lead">
@@ -37,13 +39,48 @@
                   </div>
                 </div>
               </div><!-- End testimonial item -->
+
+              
+              <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test">
+                    <span class="author">Ayudante Técnico Electricista</span>
+                    <span>May 2018 - Apr 2019</span>
+                  </div>
+                  <div class="content-test">
+                    <p class="description lead">
+                      Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+              
+              <div class="swiper-slide">
+                <div class="testimonial-box">
+                  <div class="author-test">
+                    {% comment %} <img src={% static "img/testimonial-2.jpg"%} alt="" class="rounded-circle b-shadow-a"> {% endcomment %}
+                    <span class="author">Profesor Particular</span>
+                    <span>Dec 2017 - Apr 2019</span>
+                  </div>
+
+                  <div class="content-test pt-4">
+                    <p class="description lead">
+                      Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End testimonial item -->
+
+
             </div>
             <div class="swiper-pagination"></div>
           </div>
 
-          <!-- <div id="testimonial-mf" class="owl-carousel owl-theme">
-        
-      </div> -->
+           {% comment %} <div id="testimonial-mf" class="owl-carousel owl-theme">
+            
+          </div>  {% endcomment %}
         </div>
       </div>
     </div>
