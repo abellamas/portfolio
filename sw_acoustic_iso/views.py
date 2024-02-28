@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings
 from django.http.response import HttpResponse
 import plotly.graph_objects as go
 import pandas as pd
@@ -10,7 +11,6 @@ from sw_acoustic_iso.forms import MaterialsPanelForm, DimensionsPanel
 from sw_acoustic_iso.acoustic import Panel
 from datetime import datetime
 import json
-
 
 # Create your views here.
 def index(request):
@@ -60,7 +60,7 @@ def index(request):
             reduction_df = pd.DataFrame(data=[r_cremer, r_davy, r_sharp, r_iso], columns=f_per_thirds, index=['Cremer', 'Davy', 'Sharp', 'ISO'])
                 
             # Load the workbook
-            wb = load_workbook('data/template.xlsx')
+            wb = load_workbook(settings.BASE_DIR / 'sw_acoustic_iso' / 'data' / 'template.xlsx')
             ws = wb.active
             # Convert the dataframe to rows
             rows = dataframe_to_rows(reduction_df, index=False)
@@ -75,14 +75,14 @@ def index(request):
                     ws.cell(row=r_idx+7, column=c_idx+2, value=value)
 
             # Save the workbook
-            wb.save('data/templates.xlsx')
+            wb.save(settings.BASE_DIR / 'sw_acoustic_iso' / 'data' / 'output.xlsx')
             
             reduction_json = reduction_df.to_json(orient="table")
             reduction_arr = []
             reduction_arr = json.loads(reduction_json)
             print(reduction_arr)
                         
-            return render(request, 'base.html', {'material_form': material_form, 'dimensions_form': dimensions_form, 'reduction_arr': reduction_arr, 'fig_html' : fig_html, 'stiffness' : panel.stiffness, 'mass_sup':panel.mass_sup, 'freq_res': panel.freq_res, 'freq_critic': panel.freq_critic, 'freq_density':panel.freq_density})
+            return render(request, 'sw_acoustic_iso.html', {'material_form': material_form, 'dimensions_form': dimensions_form, 'reduction_arr': reduction_arr, 'fig_html' : fig_html, 'stiffness' : panel.stiffness, 'mass_sup':panel.mass_sup, 'freq_res': panel.freq_res, 'freq_critic': panel.freq_critic, 'freq_density':panel.freq_density})
             
         else:
             print("Error en la validacion")
@@ -90,13 +90,13 @@ def index(request):
     elif request.method == "GET":
         dimensions_form = DimensionsPanel()
         material_form = MaterialsPanelForm()
-        return render(request, 'base.html', {'material_form': material_form, 'dimensions_form': dimensions_form})
+        return render(request, 'sw_acoustic_iso.html', {'material_form': material_form, 'dimensions_form': dimensions_form})
     else:
-        return render(request, 'base.html')
+        return render(request, 'sw_acoustic_iso.html')
 
 def export_excel(request):
     hms = datetime.now()
-    response = HttpResponse(open("data/templates.xlsx", 'rb').read())
+    response = HttpResponse(open(settings.BASE_DIR / 'sw_acoustic_iso' / 'data' / 'output.xlsx', 'rb').read())
     response['Content-Type'] = 'application/ms-excel'
     response['Content-Disposition'] = f"attachment; filename=aislamiento_ruido_{hms}.xlsx"
     return response 

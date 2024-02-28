@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = "Load data from csv file"
     
     def handle(self, *args, **kwargs):
-        datafile = settings.BASE_DIR / 'data' / 'materiales_db.csv'
+        datafile = settings.BASE_DIR / 'sw_acoustic_iso' / 'data' / 'materiales_db.csv'
         
         with open(datafile, 'r') as csvfile:
             reader = csv.DictReader(islice(csvfile, 0, None))

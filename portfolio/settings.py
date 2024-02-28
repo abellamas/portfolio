@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "fontawesomefree",
     "bootstrap5",
-    "principal"
+    "principal",
+    "sw_acoustic_iso"
 ]
 
 MIDDLEWARE = [
