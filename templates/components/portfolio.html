@@ -14,7 +14,35 @@
           </div>
         </div>
       </div>
+      
+
       <div class="row">
+        {% for  project in projects  %}
+        <div class="col-md-4">
+          <div class="work-box">
+            <a href={{ project.img.url }} data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <div class="work-img">
+                <img src={{ project.img.url }}  alt="" class="img-fluid">
+              </div>
+            </a>
+            <div class="work-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h2 class="w-title">{{ project.title }}</h2>
+                  <div class="w-more">
+                    <span class="w-ctegory"> {{ project.section }} </span> / <span class="w-date"> {{ project.pub_date }} </span>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="w-like">
+                    <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
         <div class="col-md-4">
           <div class="work-box">
             <a href={% static "img/work-1.jpg"%} data-gallery="portfolioGallery" class="portfolio-lightbox">
@@ -39,6 +67,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="work-box">
             <a href={% static "img/work-2.jpg"%} data-gallery="portfolioGallery" class="portfolio-lightbox">
