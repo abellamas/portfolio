@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -120,6 +121,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+LANGUAGES = [
+    ('en', ('English')),
+    ('es', ('Spanish'))
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/'
+]
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -135,7 +145,7 @@ USE_TZ = True
 STATIC_DIR = BASE_DIR / 'static'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ["static/"]
-MEDIA_ROOT = BASE_DIR / '/media/' 
+MEDIA_ROOT = BASE_DIR / 'media/' 
 MEDIA_URL = '/media/' 
 
 # Default primary key field type

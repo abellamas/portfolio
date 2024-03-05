@@ -18,9 +18,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('principal.urls')),
-    path("sw_acoustic_iso/", include('sw_acoustic_iso.urls'))
+    path("sw_acoustic_iso/", include('sw_acoustic_iso.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+# ]
+
+# urlpatterns += i18n_patterns(
+#     path('', include('principal.urls')),
+#     path("sw_acoustic_iso/", include('sw_acoustic_iso.urls')),
+#     prefix_default_language=False
+# )

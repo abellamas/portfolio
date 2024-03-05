@@ -1,5 +1,6 @@
 {% load bootstrap5 %}
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +49,7 @@
 </head>
 
 <body>
-
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
@@ -78,7 +79,10 @@
   <!-- End Hero Section -->
 
   <main id="main">
+    {% comment %} {% trans "Let's translate this"%}
+    {% get_current_language as LANGUAGE_CODE %} {% endcomment %}
 
+    <p>{{LANGUAGE_CODE}}</p>
     <!-- ======= About Section ======= -->
     {% include "components/about.html" %}
     <!-- End About Section -->
