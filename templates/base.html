@@ -35,15 +35,9 @@
   {# bootstrap #}
   {# Load CSS and JavaScript #}
   {% bootstrap_css %}
+  
   {# Display django.contrib.messages as Bootstrap alerts #}
 
-  <!-- =======================================================
-  * Template Name: DevFolio
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
   {% block link %}{% endblock %}
   {% block script %}{% endblock %}
   {% block title %}{% endblock %}
@@ -51,42 +45,17 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.html"></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="{% static "img/logo.png"%}" alt="" class="img-fluid"></a>-->
-      {% include 'components/navbar.html'%}
-    </div>
-  </header>
-  <!-- End Header -->
+  {% block body %}
+  {% endblock body %}
 
   <main id="main">
-
     {% block main %}
     {% endblock main %}
-
   </main>
   <!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>abellamas</strong>. All Rights Reserved</p>
-            <div class="credits">
-
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+  {% include "components/footer.html" %}
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> 

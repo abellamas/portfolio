@@ -130,9 +130,9 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale/'
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC-3'
 
 USE_I18N = True
 
